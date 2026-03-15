@@ -2,7 +2,7 @@
 #include <glm/glm/glm.hpp>
 #include <glm/glm/gtc/matrix_transform.hpp>
 
-enum Camera_Movement {FORWARD, BACKWARD, LEFT, RIGHT};
+enum Camera_Movement {FORWARD, BACKWARD, LEFT, RIGHT, UP, DOWN};
 
 class Camera {
 public:
@@ -14,7 +14,7 @@ public:
 
 	float Yaw, Pitch, MovementSpeed, MouseSensitivity, Zoom;
 
-	Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = -90.0f, float pitch = 0.0f) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(10.0f), MouseSensitivity(0.1f), Zoom(45.0f) {
+	Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = -90.0f, float pitch = 0.0f) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(5.0f), MouseSensitivity(0.1f), Zoom(45.0f) {
 		Position = position;
 		WorldUp = up;
 		Yaw = yaw;
@@ -32,6 +32,8 @@ public:
 		if (direction == BACKWARD) Position -= Front * velocity;
 		if (direction == LEFT) Position -= Right * velocity;
 		if (direction == RIGHT) Position += Right * velocity;
+		if (direction == UP) Position += Up * velocity;
+		if (direction == DOWN) Position -= Up * velocity;
 	}
 
 	void PocessMouseMovement(float xoffset, float yoffset, bool constraintPitch = true) {

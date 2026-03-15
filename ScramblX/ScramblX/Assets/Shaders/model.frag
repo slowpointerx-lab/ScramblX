@@ -15,17 +15,18 @@ uniform vec3 lightColor;
 
 void main() {
     // Ambient
-    float ambientStrength = 0.2;
+    float ambientStrength = 0.5;
     vec3 ambient = ambientStrength * lightColor;
 
     // Diffuse
+    float diffuseStrength = 1.0;
     vec3 norm = normalize(Normal);
     vec3 lightDir = normalize(lightPos - FragPos);
     float diff = max(dot(norm, lightDir), 0.0);
-    vec3 diffuse = diff * lightColor;
+    vec3 diffuse = diffuseStrength * diff * lightColor;
 
     // Specular - FIXED: uses viewPos
-    float specularStrength = 0.5;
+    float specularStrength = 0.8;
     vec3 viewDir = normalize(viewPos - FragPos);
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), 512);

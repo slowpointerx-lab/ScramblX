@@ -55,5 +55,60 @@
     <None Include="Assets\Shaders\model.vert" />
     <None Include="Assets\Shaders\model.frag" />
     <None Include="x64\Debug\assimp-vc145-mtd.dll" />
+    <None Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\source\ferrari_laferrari.glb" />
+    <None Include="Assets\Models\lion_head_4k\lion_head.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Assets\Models\lion_head_4k\lion_head_4k.gltf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\textures\gltf_embedded_0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\textures\gltf_embedded_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\textures\gltf_embedded_2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\textures\gltf_embedded_3.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\textures\internal_ground_ao_texture.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\source\textures\gltf_embedded_0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\source\textures\gltf_embedded_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\source\textures\gltf_embedded_2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\source\textures\gltf_embedded_3.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\ferrari-laferrari-wwwvecarzcom\source\textures\internal_ground_ao_texture.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\lion_head_4k\textures\lion_head_arm_4k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\lion_head_4k\textures\lion_head_diff_4k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\lion_head_4k\textures\lion_head_nor_gl_4k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\lion_head_4k\lion_head_arm_4k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\lion_head_4k\lion_head_diff_4k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Models\lion_head_4k\lion_head_nor_gl_4k.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

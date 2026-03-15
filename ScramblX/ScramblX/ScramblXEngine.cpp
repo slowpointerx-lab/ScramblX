@@ -52,6 +52,12 @@ void processInput(GLFWwindow* window) {
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		camera.ProcessKeybord(RIGHT, deltaTime);
 	}
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+		camera.ProcessKeybord(UP, deltaTime);
+	}
+	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
+		camera.ProcessKeybord(DOWN, deltaTime);
+	}
 }
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
@@ -63,7 +69,7 @@ int main() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_SAMPLES, 4); // 4 samples is the industry standard
+	glfwWindowHint(GLFW_SAMPLES, 8); // 4 samples is the industry standard
 
 	GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "ScramblX", NULL, NULL);
 
@@ -86,16 +92,20 @@ int main() {
 	glEnable(GL_MULTISAMPLE);
 
 	glEnable(GL_DEPTH_TEST);
+
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	Shader shader("Assets/Shaders/model.vert", "Assets/Shaders/model.frag");
 
+	Model ferarri("Assets/Models/ferrari-laferrari-wwwvecarzcom/source/ferrari_laferrari.glb");
 	Model koenigsegg("Assets/Models/2020-koenigsegg-jesko/source/Final_Model/Final_Model.fbx");
+	Model lionHead("Assets/Models/lion_head_4k/lion_head_4k.gltf");
+
 	glDepthFunc(GL_LESS);
 
 	while (!glfwWindowShouldClose(window)) {
-		glClearColor(0.1f, 0.1f, 0.12f, 1.0f);
+		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glDisable(GL_CULL_FACE);
 
@@ -108,7 +118,7 @@ int main() {
 		shader.use();
 
 		shader.setVec3("viewPos", camera.Position);
-		shader.setVec3("lightPos", glm::vec3(100.0f, 100.0f, 100.0f));
+		shader.setVec3("lightPos", glm::vec3(10.0f * sin(glfwGetTime()), 0.0f, 10.0f * cos(glfwGetTime())));
 		shader.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
 		glm::mat4 view = camera.GetViewMatrix();
 		glm::mat4 projection = glm::perspective(
@@ -120,9 +130,18 @@ int main() {
 		shader.setMat4("view", view);
 		shader.setMat4("projection", projection);
 
+		glm::mat4 car1pos = glm::mat4(1.0f);
+		car1pos = glm::translate(car1pos, glm::vec3(2.0f, 0.0f, 0.0f));
+		car1pos = glm::rotate(car1pos, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		koenigsegg.Draw(shader.ID, car1pos);
+
 		glm::mat4 car2pos = glm::mat4(1.0f);
-		car2pos = glm::translate(car2pos, glm::vec3(-10.0f, 0.0f, 0.0f));
-		koenigsegg.Draw(shader.ID, car2pos);
+		car2pos = glm::translate(car2pos, glm::vec3(-2.0f, 0.0f, 0.0f));
+		ferarri.Draw(shader.ID, car2pos);
+
+		glm::mat4 lionpos = glm::mat4(1.0f);
+		lionpos = glm::translate(lionpos, glm::vec3(0.0f, 2.0f, 0.0f));
+		lionHead.Draw(shader.ID, lionpos);
 
 
 		glfwSwapBuffers(window);
