@@ -1,23 +1,16 @@
-# Visual Studio
+# --- Visual Studio Build Files ---
 .vs/
-*.VC.db
-*.VC.opendb
-
-# Build folders
 x64/
 Debug/
 Release/
-
-# Compiled files
 *.obj
 *.exe
 *.pdb
 *.ilk
-*.dll
+*.suo
+*.user
 
-# CMake
-CMakeFiles/
-CMakeCache.txt
-
-# Logs
-*.log
+# --- External Libraries ---
+# ONLY ignore these if you have a system to fetch them (like vcpkg or NuGet)
+# If you are manually copying DLLs, DO NOT ignore them!
+# bin/
