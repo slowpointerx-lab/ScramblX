@@ -121,6 +121,9 @@
       <AdditionalDependencies>glfw3.lib;opengl32.lib;gdi32.lib;user32.lib;shell32.lib;assimp-vc145-mtd.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\Externals\lib</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(SolutionDir)..\Externals\dll\*.dll" "$(SolutionDir)\ScramblX\x64\Debug\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -139,6 +142,9 @@
       <AdditionalDependencies>glfw3.lib;opengl32.lib;gdi32.lib;user32.lib;shell32.lib;assimp-vc145-mtd.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)..\Externals\lib</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(SolutionDir)..\Externals\dll\*.dll" "$(SolutionDir)\ScramblX\x64\Debug\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Externals\src\glad.c" />
