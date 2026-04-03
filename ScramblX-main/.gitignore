@@ -1,0 +1,16 @@
+# --- Visual Studio Build Files ---
+.vs/
+x64/
+Debug/
+Release/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.suo
+*.user
+
+# --- External Libraries ---
+# ONLY ignore these if you have a system to fetch them (like vcpkg or NuGet)
+# If you are manually copying DLLs, DO NOT ignore them!
+# bin/

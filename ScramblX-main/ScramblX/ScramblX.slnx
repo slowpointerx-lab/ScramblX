@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ScramblX/ScramblX.vcxproj" Id="20541786-6c4a-43f1-b4e7-69debc9877c1" />
+</Solution>
